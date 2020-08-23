@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="indigo300">#7986CB</color>
+    <color name="deepPurple300">#9575CD</color>
+    <color name="purple200">#CE93D8</color>
+    <color name="purple300">#BA68C8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="blueGray200">#B0BEC5</color>
+    <color name="blue300">#64B5F6</color>
+    <color name="blue400">#42A5F5</color>
+    <color name="gray300">#EEEEEE</color>
+    <color name="pink300">#F06292</color>
+    <color name="darkBlack">#333333</color>
+    <color name="yellow300">#FFF176</color>
+    <color name="redA400">#ff1744</color>
+</resources>

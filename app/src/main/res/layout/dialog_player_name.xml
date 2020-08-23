@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:paddingVertical="8dp">
+    <TextView
+        android:id="@+id/titleDescriptionPlayersName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_title_description_players_name"
+        android:paddingVertical="4dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/edtPlayerNameOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_layout"
+        android:text="@string/text_edt_player_name_one"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDescriptionPlayersName"
+        android:layout_marginHorizontal="24dp"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        tools:ignore="LabelFor" />
+    <EditText
+        android:id="@+id/edtPlayerNameTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_layout"
+        android:text="@string/text_edt_player_name_two"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPlayerNameOne"
+        android:layout_marginHorizontal="24dp"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        tools:ignore="LabelFor" />
+    <Button
+        android:id="@+id/btnGameStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPlayerNameTwo"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="24dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/text_btn_game_start"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
