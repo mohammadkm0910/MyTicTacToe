@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TwoPeopleGameActivity"
+        <activity android:name=".OnePeopleGameActivity"
             android:configChanges="orientation|screenSize"/>
+        <activity
+            android:name=".TwoPeopleGameActivity"
+            android:configChanges="orientation|screenSize" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

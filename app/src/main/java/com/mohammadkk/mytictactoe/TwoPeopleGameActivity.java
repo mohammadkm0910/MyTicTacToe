@@ -2,10 +2,15 @@ package com.mohammadkk.mytictactoe;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.content.ContextCompat;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.drawable.AnimatedStateListDrawable;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -86,6 +91,7 @@ public class TwoPeopleGameActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
     }
     public void game(View view) {
         int tags = Integer.parseInt(view.getTag().toString());

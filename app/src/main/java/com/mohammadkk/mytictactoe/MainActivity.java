@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onePeopleActivityLoad(View view) {
-        Toast.makeText(this, "فعلا چیزی وجود ندارد!!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this,OnePeopleGameActivity.class);
+        startActivity(intent);
     }
 }

@@ -11,4 +11,9 @@
     <string name="text_edt_player_name_two">بازیکن شماره دو</string>
     <string name="text_btn_game_start">شروع بازی</string>
     <string name="text_reload_app">تازه سازی</string>
+    <string name="text_title_level">لطفاًً سطح بازی را انتخاب کنید</string>
+    <string name="text_level_easy">آســــــــــــان</string>
+    <string name="text_level_hard">سخــــــت</string>
+    <string name="text_button_go_to_level">برو به بازی</string>
+    <string name="text_robot_player_two">ربات</string>
 </resources>
