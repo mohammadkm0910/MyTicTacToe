@@ -2,8 +2,12 @@ package com.mohammadkk.mytictactoe;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.annotation.SuppressLint;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,7 +33,7 @@ public class OnePeopleGameActivity extends AppCompatActivity {
             {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
             {0, 4, 8}, {2, 4, 6}};
     private LinearLayout resultLayout;
-    private ImageView imageView0, imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8;
+    private AppCompatImageView imageView0, imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8;
     private MediaPlayer clickSoundO, clickSoundX;
     private EditText edtPlayerNameOne;
     private Button btnRecreate;
@@ -85,9 +89,8 @@ public class OnePeopleGameActivity extends AppCompatActivity {
         if (winner != NO_WINNER || status[tag] != EMPTY){
             return;
         }
-        ImageView imageView = (ImageView) view;
-        clickSoundO.start();
-        imageView.setImageResource(R.drawable.ic_o);
+        AppCompatImageView imageView = (AppCompatImageView) view;
+        animationOView(imageView);
         status[tag] = PLAYER;
         confrontation();
         result();
@@ -96,99 +99,99 @@ public class OnePeopleGameActivity extends AppCompatActivity {
     private void confrontation() {
         if (status[0] == PLAYER && status[1] == PLAYER && status[2] == EMPTY) {
             status[2] = PLAYER_BOT;
-            imageView2.setImageResource(R.drawable.ic_x);
+            animationXView(imageView2);
             clickSoundX.start();
         } else if (status[1] == PLAYER && status[2] == PLAYER && status[0] == EMPTY) {
             status[0] = PLAYER_BOT;
-            imageView0.setImageResource(R.drawable.ic_x);
+            animationXView(imageView0);
             clickSoundX.start();
         } else if (status[0] == PLAYER && status[2] == PLAYER && status[1] == EMPTY) {
             status[1] = PLAYER_BOT;
-            imageView1.setImageResource(R.drawable.ic_x);
+            animationXView(imageView1);
             clickSoundX.start();
         } else if (status[3] == PLAYER && status[4] == PLAYER && status[5] == EMPTY) {
             status[5] = PLAYER_BOT;
-            imageView5.setImageResource(R.drawable.ic_x);
+            animationXView(imageView5);
             clickSoundX.start();
         } else if (status[4] == PLAYER && status[5] == PLAYER && status[3] == EMPTY) {
             status[3] = PLAYER_BOT;
-            imageView3.setImageResource(R.drawable.ic_x);
+            animationXView(imageView3);
             clickSoundX.start();
         } else if (status[3] == PLAYER && status[5] == PLAYER && status[4] == EMPTY) {
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
             clickSoundX.start();
         } else if (status[6] == PLAYER && status[7] == PLAYER && status[8] == EMPTY) {
             status[8] = PLAYER_BOT;
-            imageView8.setImageResource(R.drawable.ic_x);
+            animationXView(imageView8);
             clickSoundX.start();
         } else if (status[7] == PLAYER && status[8] == PLAYER && status[6] == EMPTY) {
             status[6] = PLAYER_BOT;
-            imageView6.setImageResource(R.drawable.ic_x);
+            animationXView(imageView6);
             clickSoundX.start();
         } else if (status[6] == PLAYER && status[8] == PLAYER && status[7] == EMPTY) {
             status[7] = PLAYER_BOT;
-            imageView7.setImageResource(R.drawable.ic_x);
+            animationXView(imageView7);
             clickSoundX.start();
         } else if (status[0] == PLAYER && status[3] == PLAYER && status[6] == EMPTY) {
             status[6] = PLAYER_BOT;
-            imageView6.setImageResource(R.drawable.ic_x);
+            animationXView(imageView6);
             clickSoundX.start();
         } else if (status[3] == PLAYER && status[6] == PLAYER && status[0] == EMPTY) {
             status[0] = PLAYER_BOT;
-            imageView0.setImageResource(R.drawable.ic_x);
+            animationXView(imageView0);
             clickSoundX.start();
         } else if (status[0] == PLAYER && status[6] == PLAYER && status[3] == EMPTY) {
             status[3] = PLAYER_BOT;
-            imageView3.setImageResource(R.drawable.ic_x);
+            animationXView(imageView3);
             clickSoundX.start();
         } else if (status[1] == PLAYER && status[4] == PLAYER && status[7] == EMPTY) {
             status[7] = PLAYER_BOT;
-            imageView7.setImageResource(R.drawable.ic_x);
+            animationXView(imageView7);
             clickSoundX.start();
         } else if (status[4] == PLAYER && status[7] == PLAYER && status[1] == EMPTY) {
             status[1] = PLAYER_BOT;
-            imageView1.setImageResource(R.drawable.ic_x);
+            animationXView(imageView1);
             clickSoundX.start();
         } else if (status[1] == PLAYER && status[7] == PLAYER && status[4] == EMPTY) {
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
             clickSoundX.start();
         } else if (status[2] == PLAYER && status[5] == PLAYER && status[8] == EMPTY) {
             status[8] = PLAYER_BOT;
-            imageView8.setImageResource(R.drawable.ic_x);
+            animationXView(imageView8);
             clickSoundX.start();
         } else if (status[5] == PLAYER && status[8] == PLAYER && status[2] == EMPTY) {
             status[2] = PLAYER_BOT;
-            imageView2.setImageResource(R.drawable.ic_x);
+            animationXView(imageView2);
             clickSoundX.start();
         } else if (status[2] == PLAYER && status[8] == PLAYER && status[5] == EMPTY) {
             status[5] = PLAYER_BOT;
-            imageView5.setImageResource(R.drawable.ic_x);
+            animationXView(imageView5);
             clickSoundX.start();
         } else if (status[0] == PLAYER && status[4] == PLAYER && status[8] == EMPTY) {
             status[8] = PLAYER_BOT;
-            imageView8.setImageResource(R.drawable.ic_x);
+            animationXView(imageView8);
             clickSoundX.start();
         } else if (status[4] == PLAYER && status[8] == PLAYER && status[0] == EMPTY) {
             status[0] = PLAYER_BOT;
-            imageView0.setImageResource(R.drawable.ic_x);
+            animationXView(imageView0);
             clickSoundX.start();
         } else if (status[0] == PLAYER && status[8] == PLAYER && status[4] == EMPTY) {
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
             clickSoundX.start();
         } else if (status[2] == PLAYER && status[4] == PLAYER && status[6] == EMPTY) {
             status[6] = PLAYER_BOT;
-            imageView6.setImageResource(R.drawable.ic_x);
+            animationXView(imageView6);
             clickSoundX.start();
         } else if (status[4] == PLAYER && status[6] == PLAYER && status[2] == EMPTY) {
             status[2] = PLAYER_BOT;
-            imageView2.setImageResource(R.drawable.ic_x);
+            animationXView(imageView2);
             clickSoundX.start();
         } else if (status[2] == PLAYER && status[6] == PLAYER && status[4] == EMPTY) {
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
             clickSoundX.start();
         } else {
             move();
@@ -197,90 +200,88 @@ public class OnePeopleGameActivity extends AppCompatActivity {
     private void move() {
         if (status[0]== PLAYER_BOT && status[1]== EMPTY){
             status[1] = PLAYER_BOT;
-            imageView1.setImageResource(R.drawable.ic_x);
+            animationXView(imageView1);
         }else if (status[0]== PLAYER_BOT && status[3]== EMPTY){
             status[3] = PLAYER_BOT;
-            imageView3.setImageResource(R.drawable.ic_x);
+            animationXView(imageView3);
         }else if (status[0]== PLAYER_BOT && status[4]== EMPTY){
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[1]== PLAYER_BOT && status[0]== EMPTY){
             status[0] = PLAYER_BOT;
-            imageView0.setImageResource(R.drawable.ic_x);
+            animationXView(imageView0);
         }else if (status[1]== PLAYER_BOT && status[2]== EMPTY){
             status[2] = PLAYER_BOT;
-            imageView2.setImageResource(R.drawable.ic_x);
+            animationXView(imageView2);
         }else if (status[1]== PLAYER_BOT && status[4]== EMPTY){
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[2]== PLAYER_BOT && status[1]== EMPTY){
             status[1] = PLAYER_BOT;
-            imageView1.setImageResource(R.drawable.ic_x);
+            animationXView(imageView1);
         }else if (status[2]== PLAYER_BOT && status[4]== EMPTY){
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[2]== PLAYER_BOT && status[5]== EMPTY){
             status[5] = PLAYER_BOT;
-            imageView5.setImageResource(R.drawable.ic_x);
+            animationXView(imageView5);
         }else if (status[3]== PLAYER_BOT && status[0]== EMPTY){
             status[0] = PLAYER_BOT;
-            imageView0.setImageResource(R.drawable.ic_x);
+            animationXView(imageView0);
         }else if (status[3]== PLAYER_BOT && status[4]== EMPTY){
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[3]== PLAYER_BOT && status[6]== EMPTY){
             status[6] = PLAYER_BOT;
-            imageView6.setImageResource(R.drawable.ic_x);
+            animationXView(imageView6);
         } else if (status[4]== PLAYER_BOT && status[3]== EMPTY){
             status[3] = PLAYER_BOT;
-            imageView3.setImageResource(R.drawable.ic_x);
+            animationXView(imageView3);
         }else if (status[4]== PLAYER_BOT && status[1]== EMPTY){
             status[1] = PLAYER_BOT;
-            imageView1.setImageResource(R.drawable.ic_x);
+            animationXView(imageView1);
         }else if (status[4]== PLAYER_BOT && status[5]== EMPTY) {
             status[5] = PLAYER_BOT;
-            imageView5.setImageResource(R.drawable.ic_x);
+            animationXView(imageView5);
         }else if (status[4]== PLAYER_BOT && status[7]== EMPTY) {
             status[7] = PLAYER_BOT;
-            imageView7.setImageResource(R.drawable.ic_x);
+            animationXView(imageView7);
         }else if (status[5]== PLAYER_BOT && status[2]== EMPTY) {
             status[2] = PLAYER_BOT;
-            imageView2.setImageResource(R.drawable.ic_x);
+            animationXView(imageView2);
         }else if (status[5]== PLAYER_BOT && status[4]== EMPTY) {
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[5]== PLAYER_BOT && status[8]== EMPTY) {
             status[8] = PLAYER_BOT;
-            imageView8.setImageResource(R.drawable.ic_x);
+            animationXView(imageView8);
         }else if (status[6]== PLAYER_BOT && status[3]== EMPTY) {
             status[3] = PLAYER_BOT;
-            imageView3.setImageResource(R.drawable.ic_x);
+            animationXView(imageView3);
         }else if (status[6]== PLAYER_BOT && status[7]== EMPTY) {
             status[7] = PLAYER_BOT;
-            imageView7.setImageResource(R.drawable.ic_x);
+            animationXView(imageView7);
         }else if (status[6]== PLAYER_BOT && status[4]== EMPTY){
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[7]== PLAYER_BOT && status[6]== EMPTY) {
             status[6] = PLAYER_BOT;
-            imageView6.setImageResource(R.drawable.ic_x);
+            animationXView(imageView6);
         }else if (status[7]== PLAYER_BOT && status[4]== EMPTY) {
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }else if (status[7]== PLAYER_BOT && status[8]== EMPTY) {
             status[8] = PLAYER_BOT;
-            imageView8.setImageResource(R.drawable.ic_x);
+            animationXView(imageView8);
         }else if (status[8]== PLAYER_BOT && status[5]== EMPTY) {
             status[5] = PLAYER_BOT;
-            imageView5.setImageResource(R.drawable.ic_x);
-
+            animationXView(imageView5);
         }else if (status[8]== PLAYER_BOT && status[7]== EMPTY) {
             status[7] = PLAYER_BOT;
-            imageView7.setImageResource(R.drawable.ic_x);
-
+            animationXView(imageView7);
         }else if (status[8]== PLAYER_BOT && status[4]== EMPTY){
             status[4] = PLAYER_BOT;
-            imageView4.setImageResource(R.drawable.ic_x);
+            animationXView(imageView4);
         }
     }
 
@@ -338,33 +339,46 @@ public class OnePeopleGameActivity extends AppCompatActivity {
         clickSoundX.start();
         switch (num) {
             case 0:
-                imageView0.setImageResource(R.drawable.ic_x);
+                animationXView(imageView0);
                 break;
             case 1:
-                imageView1.setImageResource(R.drawable.ic_x);
+                animationXView(imageView1);
                 break;
             case 2:
-                imageView2.setImageResource(R.drawable.ic_x);
+                animationXView(imageView2);
                 break;
             case 3:
-                imageView3.setImageResource(R.drawable.ic_x);
+                animationXView(imageView3);
                 break;
             case 4:
-                imageView4.setImageResource(R.drawable.ic_x);
+                animationXView(imageView4);
                 break;
             case 5:
-                imageView5.setImageResource(R.drawable.ic_x);
+                animationXView(imageView5);
                 break;
             case 6:
-                imageView6.setImageResource(R.drawable.ic_x);
+                animationXView(imageView6);
                 break;
             case 7:
-                imageView7.setImageResource(R.drawable.ic_x);
+                animationXView(imageView7);
                 break;
             case 8:
-                imageView8.setImageResource(R.drawable.ic_x);
+                animationXView(imageView8);
                 break;
         }
+
+    }
+    private void animationXView(AppCompatImageView imageView){
+        Drawable animX = AnimatedVectorDrawableCompat.create(this,R.drawable.anim_x);
+        imageView.setImageDrawable(animX);
+        final Animatable animatable = (Animatable) imageView.getDrawable();
+        animatable.start();
+    }
+    private void animationOView(AppCompatImageView imageView){
+        Drawable animX = AnimatedVectorDrawableCompat.create(this,R.drawable.anim_o);
+        imageView.setImageDrawable(animX);
+        final Animatable animatable = (Animatable) imageView.getDrawable();
+        animatable.start();
     }
 }
 
