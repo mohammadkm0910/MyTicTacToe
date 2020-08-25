@@ -27,8 +27,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class TwoPeopleGameActivity extends AppCompatActivity {
     private static final int PLAYER_ONE = 1;
@@ -46,7 +48,7 @@ public class TwoPeopleGameActivity extends AppCompatActivity {
     private LinearLayout resultLayout;
     private AppCompatImageView imageView0,imageView1,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8;
     private MediaPlayer clickSoundO,clickSoundX;
-    private EditText edtPlayerNameOne,edtPlayerNameTwo;
+    private TextInputEditText edtPlayerNameOne,edtPlayerNameTwo;
     private Button btnRecreate;
     private TextView namePlayerOne,namePlayerTwo,scorePlayerOne,scorePlayerTwo,textMsg;
     private String PLAYER_ONE_NAME = "بازیکن شماره ۱";
@@ -88,11 +90,14 @@ public class TwoPeopleGameActivity extends AppCompatActivity {
         btnGameStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PLAYER_ONE_NAME = edtPlayerNameOne.getText().toString();
-                PLAYER_TWO_NAME = edtPlayerNameTwo.getText().toString();
-                namePlayerOne.setText(PLAYER_ONE_NAME);
-                namePlayerTwo.setText(PLAYER_TWO_NAME);
-                dialog.dismiss();
+                PLAYER_ONE_NAME = Objects.requireNonNull(edtPlayerNameOne.getText()).toString().trim();
+                PLAYER_TWO_NAME = Objects.requireNonNull(edtPlayerNameTwo.getText()).toString().trim();
+                if (!PLAYER_ONE_NAME.equals("") && !PLAYER_TWO_NAME.equals("") &&
+                        PLAYER_ONE_NAME.length() < 31 &&  PLAYER_TWO_NAME.length() < 31){
+                    namePlayerOne.setText(PLAYER_ONE_NAME);
+                    namePlayerTwo.setText(PLAYER_TWO_NAME);
+                    dialog.dismiss();
+                }
             }
         });
 

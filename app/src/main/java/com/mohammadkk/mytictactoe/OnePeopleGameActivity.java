@@ -3,6 +3,7 @@ package com.mohammadkk.mytictactoe;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.annotation.SuppressLint;
@@ -18,6 +19,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class OnePeopleGameActivity extends AppCompatActivity {
@@ -35,7 +40,7 @@ public class OnePeopleGameActivity extends AppCompatActivity {
     private LinearLayout resultLayout;
     private AppCompatImageView imageView0, imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8;
     private MediaPlayer clickSoundO, clickSoundX;
-    private EditText edtPlayerNameOne;
+    private TextInputEditText edtPlayerNameOne;
     private Button btnRecreate;
     private TextView namePlayer, namePlayerTwo, scorePlayer, scoreRobotPlayer, textMsg;
     private String PLAYER_NAME = "بازیکن شماره ۱";
@@ -76,10 +81,12 @@ public class OnePeopleGameActivity extends AppCompatActivity {
         btnGameStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PLAYER_NAME = edtPlayerNameOne.getText().toString();
-                namePlayer.setText(PLAYER_NAME);
-                dialog.dismiss();
-                random();
+                PLAYER_NAME = Objects.requireNonNull(edtPlayerNameOne.getText()).toString().trim();
+                if (!PLAYER_NAME.equals("") && PLAYER_NAME.length() < 31){
+                    namePlayer.setText(PLAYER_NAME);
+                    dialog.dismiss();
+                    random();
+                }
             }
         });
     }
@@ -93,6 +100,7 @@ public class OnePeopleGameActivity extends AppCompatActivity {
         animationOView(imageView);
         status[tag] = PLAYER;
         confrontation();
+        clickSoundO.start();
         result();
     }
     //معنی مقابله
@@ -322,16 +330,6 @@ public class OnePeopleGameActivity extends AppCompatActivity {
         }
         return true;
     }
-    private void showMsg(String msg){
-        textMsg.setText(msg);
-        resultLayout.setVisibility(View.VISIBLE);
-        btnRecreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
-    }
     private void random() {
         Random random = new Random();
         int num = random.nextInt(8);
@@ -379,6 +377,33 @@ public class OnePeopleGameActivity extends AppCompatActivity {
         imageView.setImageDrawable(animX);
         final Animatable animatable = (Animatable) imageView.getDrawable();
         animatable.start();
+    }
+    private void showMsg(String msg){
+        textMsg.setText(msg);
+        resultLayout.setVisibility(View.VISIBLE);
+        btnRecreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reset();
+            }
+        });
+    }
+    private void reset() {
+        namePlayer.setTextColor(ContextCompat.getColor(this,R.color.indigo300));
+        namePlayerTwo.setTextColor(ContextCompat.getColor(this,R.color.indigo300));
+        resultLayout.setVisibility(View.GONE);
+        winner = NO_WINNER;
+        Arrays.fill(status, EMPTY);
+        imageView0.setImageResource(0);
+        imageView1.setImageResource(0);
+        imageView2.setImageResource(0);
+        imageView3.setImageResource(0);
+        imageView4.setImageResource(0);
+        imageView5.setImageResource(0);
+        imageView6.setImageResource(0);
+        imageView7.setImageResource(0);
+        imageView8.setImageResource(0);
+        random();
     }
 }
 
